@@ -41,4 +41,8 @@ if ((editingStatusElement == null) || (editingStatusElement.innerText == "OFF"))
 		.map(tag => Array.from(tag.children))
 		.flat()
 		.forEach(listItem => createCheckboxFromListItem(listItem))
+	Array.from(document.getElementsByClassName('liItem read'))
+		.filter(contentItem => contentItem.querySelector('h3').innerText == "Checklist Script")
+		.forEach(contentItem => contentItem.style.display = "none")
+
 }
