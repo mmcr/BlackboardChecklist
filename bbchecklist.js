@@ -1,7 +1,7 @@
 (() => {
 	String.prototype.scrub = function() {
-			return this.replaceAll(/[^\w]/g, "")
-		}
+		return this.replaceAll(/[^\w]/g, "")
+	}
 	
 	let editingStatusElement = document.getElementById('statusText')
 	let courseID = document.querySelector('li.root.coursePath a').getAttribute('href').match(/[\w_]+$/)[0]
