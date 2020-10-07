@@ -73,7 +73,7 @@
 		
 		
 		let courseID = document.querySelector('li.root.coursePath a').getAttribute('href').match(/[\w_]+$/)[0]
-		let userID = document.getElementById('magicUserID')?.innerText.trim() ?? "DEBUG"
+		let userID = document.getElementById('magicUserID')?.innerText.trim().scrub() ?? "DEBUG"
 		let pageID = document.querySelector('#pageTitleDiv form').getAttribute('action').match(/content_id=([\w_]+)&/)[1]
 		let appInstance
 
