@@ -1,4 +1,4 @@
-(() => {
+const BbChecklist = (function() {
 	console.log("at the start")
 
 	let head = document.getElementsByTagName("head")[0]
@@ -155,7 +155,9 @@
 						.forEach(contentItem => contentItem.style.display = "none")
 				})
 		}
-		window.setTimeout(makeTheMagicHappen, 250)
+		return {
+			begin: makeTheMagicHappen
+		}
 	}
-	
 })()
+window.setTimeout(BbChecklist.begin, 250)
