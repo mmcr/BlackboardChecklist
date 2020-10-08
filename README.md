@@ -8,7 +8,7 @@
 
 ~~~html
 <div id="magicUserID" style="display: none;">@X@user.id@X@</div>
-<script src="https://rawcdn.githack.com/mmcr/BlackboardChecklist/38e32094f5854dcac0a469741d685c5382020438/bbchecklist.js" type="text/javascript"></script>
+<script src="https://rawcdn.githack.com/mmcr/BlackboardChecklist/7f468e98f41644c6b2bd7db8ceba2ca57300d2eb/bbchecklist.js" type="text/javascript"></script>
 ~~~
 
 4. Give the name "Learner Guide" to a content item within the content area. Any unordered list items within that content item will be turned into checkboxes. Each list item is tracked by the first twenty text characters.
