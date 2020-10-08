@@ -12,3 +12,7 @@
 ~~~
 
 4. Give the name "Learner Guide" to a content item within the content area. Any unordered list items within that content item will be turned into checkboxes. Each list item is tracked by the first twenty text characters.
+
+## Other Notes
+
+Obfuscation with: https://javascriptobfuscator.com/Javascript-Obfuscator.aspx
