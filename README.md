@@ -15,4 +15,6 @@
 
 ## Other Notes
 
-Obfuscation with: https://javascriptobfuscator.com/Javascript-Obfuscator.aspx
+Obfuscation with:
+https://javascriptobfuscator.com/Javascript-Obfuscator.aspx
+https://www.preemptive.com/products/jsdefender/online-javascript-obfuscator-demo
