@@ -1,6 +1,4 @@
 const BbChecklist = (function() {
-	console.log("at the start")
-
 	var head = document.getElementsByTagName("head")[0]
 
 	String.prototype.scrub = function() {
@@ -38,7 +36,7 @@ const BbChecklist = (function() {
 	const saveCheckboxToDatabase = function(checkboxID, value) {
 		var ref = database.ref().child(`checkboxes/${userID}/${courseID}/${pageID}/${checkboxID}`)
 		ref.set(value)
-			.then(() => console.log("Saved checkbox"))
+			.then(() => {})
 			.catch(error => console.error(`Error saving checkbox: ${error}`))
 	}
 	const loadCheckboxesFromDatabase = function() {
@@ -53,7 +51,7 @@ const BbChecklist = (function() {
 			.catch(error => console.error(`Unable to load checkboxes: ${error}`))
 		
 		ref.on('child_changed', function(childSnapshot) {
-			console.log(`changed: ${childSnapshot}`)	
+
 		}, function(error) {
 			console.log(`Error: ${error}`)
 		})
@@ -92,9 +90,7 @@ const BbChecklist = (function() {
 	}
 	const makeTheMagicHappen = function() {
 		showLoadingIndicator()
-		console.log("in makeTheMagicHappen")
 		if (appInstance == null) {
-			console.log("initing Firebase")
 			appInstance = firebase.initializeApp({
 				apiKey: "AIzaSyAHe2hquz7tuauLQKEXmK44s3jl02gdzl4",
 				authDomain: "bbchecklist-c599c.firebaseapp.com",
@@ -108,7 +104,6 @@ const BbChecklist = (function() {
 		database = firebase.database()
 		loadCheckboxesFromDatabase()
 			.then(() => {
-				console.log("before building checkboxes")
 				Array.from(document.getElementsByClassName('liItem read'))
 					.filter(contentItem =>  ['Learner Guide'].includes(contentItem.querySelector('h3').innerText))
 					.map(contentItem => contentItem.querySelector(".vtbegenerated").children)
