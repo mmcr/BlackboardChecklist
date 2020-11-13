@@ -1,6 +1,6 @@
 const BbChecklist = (function() {
 	var head = document.getElementsByTagName("head")[0]
-
+	const learnerGuideTitles = ["Learner Guide", "Module Overview", "Instructions", "Module Instructions"]
 	String.prototype.scrub = function() {
 		return this.replaceAll(/[^\w]/g, "")
 	}
@@ -17,7 +17,7 @@ const BbChecklist = (function() {
 	
 	const showLoadingIndicator = function() {
 		var el = Array.from(document.querySelectorAll('.liItem.read'))
-			.filter(contentItem =>  ['Learner Guide'].includes(contentItem.querySelector('h3').innerText))[0]
+			.filter(contentItem =>  learnerGuideTitles.includes(contentItem.querySelector('h3').innerText))[0]
 		var icon = el.querySelector('img.item_icon')
 		icon.style.display = "none"	
 		if (el.querySelector('i.fa-spin') == null) {
@@ -26,7 +26,7 @@ const BbChecklist = (function() {
 	}
 	const hideLoadingIndicator = function() {
 		var el = Array.from(document.querySelectorAll('.liItem.read'))
-			.filter(contentItem =>  ['Learner Guide'].includes(contentItem.querySelector('h3').innerText))[0]			
+			.filter(contentItem =>  learnerGuideTitles.includes(contentItem.querySelector('h3').innerText))[0]			
 		var icon = el.querySelector('img.item_icon')
 		var indicator = el.querySelector('i.fa-spin')
 		icon.style.display = "block"
@@ -105,12 +105,10 @@ const BbChecklist = (function() {
 		loadCheckboxesFromDatabase()
 			.then(() => {
 				Array.from(document.getElementsByClassName('liItem read'))
-					.filter(contentItem =>  ['Learner Guide'].includes(contentItem.querySelector('h3').innerText))
-					.map(contentItem => contentItem.querySelector(".vtbegenerated").children)
-					.map(elements => Array.from(elements))
+					.filter(contentItem =>  learnerGuideTitles.includes(contentItem.querySelector('h3').innerText))
+					.map(contentItem => Array.from(contentItem.querySelectorAll(".vtbegenerated ul")))
 					.flat()
-					.filter(tag => tag.tagName == "UL")
-					.map(tag => Array.from(tag.children))
+					.map(list => Array.from(list.children))
 					.flat()
 					.forEach(listItem => createCheckboxFromListItem(listItem))
 				Array.from(document.getElementsByClassName('liItem read'))
